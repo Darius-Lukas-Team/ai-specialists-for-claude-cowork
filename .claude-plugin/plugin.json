@@ -1,0 +1,21 @@
+{
+  "name": "ai-helpers",
+  "description": "70 AI business specialists — social media, copywriting, sales, marketing, productivity, and more",
+  "version": "1.0.0",
+  "author": {
+    "name": "hyperentrepreneur.com"
+  },
+  "keywords": [
+    "ai-helpers",
+    "business",
+    "marketing",
+    "copywriting",
+    "social-media",
+    "sales",
+    "productivity",
+    "content-creation",
+    "strategy",
+    "bootcamp"
+  ],
+  "userConfig": {}
+}
