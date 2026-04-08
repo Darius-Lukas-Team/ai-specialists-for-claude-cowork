@@ -1,0 +1,53 @@
+{
+  "name": "ai-specialists-for-claude-cowork",
+  "owner": {
+    "name": "hyperentrepreneur.com"
+  },
+  "metadata": {
+    "description": "30 AI business specialists — social media, copywriting, sales, marketing, and more",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-specialists",
+      "description": "30 AI business specialists — social media, copywriting, sales, marketing, and more",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ai-helper",
+        "./skills/ai-specialist",
+        "./skills/adam-ad-optimisation",
+        "./skills/barbara-blog-writing",
+        "./skills/bobby-business-assistant",
+        "./skills/cara-content-repurposing",
+        "./skills/cassie-client-onboarding",
+        "./skills/ceevee-cv",
+        "./skills/celia-cold-email",
+        "./skills/cena-client-avatar",
+        "./skills/cindy-customer-service",
+        "./skills/dimarko-digital-marketing",
+        "./skills/dipedi-product-development",
+        "./skills/emmi-excel",
+        "./skills/febo-facebook",
+        "./skills/grant-grammar",
+        "./skills/instar-instagram",
+        "./skills/inti-interview",
+        "./skills/linx-linkedin-growth",
+        "./skills/mape-marketing-persona",
+        "./skills/milo-book-writing",
+        "./skills/phoenix-rewrite",
+        "./skills/sally-sales-story",
+        "./skills/sandra-social-strategy",
+        "./skills/sebo-seo",
+        "./skills/sienna-sales-advisor",
+        "./skills/sophie-market-research",
+        "./skills/vex-viral-hooks",
+        "./skills/victor-virtual-support",
+        "./skills/viddi-viral-video",
+        "./skills/vinnie-virtual-assistant",
+        "./skills/xavier-x-twitter",
+        "./skills/zoe-character-creator"
+      ]
+    }
+  ]
+}
