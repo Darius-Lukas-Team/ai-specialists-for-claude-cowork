@@ -1,5 +1,5 @@
 {
-  "name": "ai-helpers-for-claude-cowork",
+  "name": "ai-specialists-for-claude-cowork",
   "owner": {
     "name": "hyperentrepreneur.com"
   },
@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "ai-helpers",
+      "name": "AI Specialists",
       "description": "70 AI business specialists — social media, copywriting, sales, marketing, productivity, and more",
       "source": "./",
       "strict": false,

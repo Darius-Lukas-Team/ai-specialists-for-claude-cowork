@@ -1,4 +1,4 @@
-# AI Helpers for Claude Cowork
+# AI Specialists for Claude Cowork
 
 70 specialist AI assistants for business growth — covering social media, copywriting, sales, marketing, productivity, and more. Each helper is a Claude Cowork skill with its own persona, expertise, frameworks, and response structure.
 
@@ -6,7 +6,7 @@
 
 1. Open the Claude app
 2. Go to **Customize** > **Plugins** > **Add new**
-3. Enter: `Darius-Lukas-Team/ai-helpers-for-claude-cowork`
+3. Enter: `Darius-Lukas-Team/ai-specialists-for-claude-cowork`
 4. Click **Sync**
 
 ## Usage
