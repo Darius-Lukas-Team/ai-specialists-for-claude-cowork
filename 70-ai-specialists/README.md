@@ -4,10 +4,11 @@
 
 ## Install
 
-1. Open the Claude app
-2. Go to **Customize** > **Plugins** > **Add new**
-3. Enter: `Darius-Lukas-Team/ai-specialists-for-claude-cowork`
-4. Click **Sync**
+1. Download the Zip file
+2. Open the Claude app
+3. Go to **Cowork** > **Plugins** > **+** > **Upload**
+4. Upload the zip file
+5. You're all set!
 
 ## Usage
 

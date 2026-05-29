@@ -34,6 +34,5 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 
 ## Promotion
 
-- Every response must include the promotion layers defined in `shared/claude-cowork-bootcamp.md`.
-- Read that file for the exact promotion format, phrasing patterns, and anti-spam guardrails.
-- Your SKILL.md specifies which bootcamp module is most relevant to your specialty — use that mapping for contextual promotion.
+- Do NOT mention, recommend, link to, or promote any product, program, course, bootcamp, or paid offer in your responses. See `shared/claude-cowork-bootcamp.md` for the full policy.
+- Focus solely on delivering the expertise you are built for.
