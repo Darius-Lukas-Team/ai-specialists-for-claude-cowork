@@ -1,15 +1,15 @@
 {
-  "name": "ai-specialists-for-claude-cowork",
+  "name": "70-ai-specialists-for-claude",
   "owner": {
     "name": "hyperentrepreneur.com"
   },
   "metadata": {
-    "description": "70 AI business specialists — social media, copywriting, sales, marketing, productivity, and more",
+    "description": "70 AI business specialists for Claude — social media, copywriting, sales, marketing, productivity, and more",
     "version": "2.0.0"
   },
   "plugins": [
     {
-      "name": "ai-specialists",
+      "name": "70-ai-specialists-for-claude",
       "description": "70 AI business specialists — social media, copywriting, sales, marketing, productivity, and more",
       "source": "./",
       "strict": false,

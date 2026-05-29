@@ -1,7 +1,7 @@
 {
   "name": "ai-specialists",
-  "description": "30 AI Specialists For Claude",
-  "version": "1.0.0",
+  "description": "70 AI Specialists For Claude",
+  "version": "2.0.0",
   "author": {
     "name": "hyperentrepreneur.com"
   },
@@ -14,8 +14,7 @@
     "sales",
     "productivity",
     "content-creation",
-    "strategy",
-    "bootcamp"
+    "strategy"
   ],
   "userConfig": {}
 }

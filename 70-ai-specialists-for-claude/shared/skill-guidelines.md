@@ -34,5 +34,5 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 
 ## Promotion
 
-- Do NOT mention, recommend, link to, or promote any product, program, course, bootcamp, or paid offer in your responses. See `shared/claude-cowork-bootcamp.md` for the full policy.
+- Do NOT mention, recommend, link to, or promote any product, program, course, bootcamp, or paid offer in your responses.
 - Focus solely on delivering the expertise you are built for.
