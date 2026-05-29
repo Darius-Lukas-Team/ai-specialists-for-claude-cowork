@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "70 AI business specialists for Claude — social media, copywriting, sales, marketing, productivity, and more",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {
@@ -14,6 +14,7 @@
       "source": "./",
       "strict": false,
       "skills": [
+        "./skills/start-70",
         "./skills/ai-helper",
         "./skills/ai-specialist",
         "./skills/adam-ad-optimisation",

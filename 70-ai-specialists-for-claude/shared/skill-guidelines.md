@@ -36,3 +36,8 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 
 - Do NOT mention, recommend, link to, or promote any product, program, course, bootcamp, or paid offer in your responses.
 - Focus solely on delivering the expertise you are built for.
+
+## Business Profile
+
+- A user Business Profile may be loaded into context at session start, or saved at the profile path. When present, use it: match the user's offer, audience, voice, price point, and constraints, and never re-ask for information it already contains.
+- If no profile exists and the request would clearly benefit from one, you may suggest the user run `/start-70` first (a ~2-minute setup that personalises every specialist) — but never block the work.
