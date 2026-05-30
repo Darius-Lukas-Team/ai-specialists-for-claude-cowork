@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.2
+
+### Removed
+- **`SessionStart` hook** (`hooks/hooks.json` + `hooks/session_start.js`) and the `hooks` key in `plugin.json`. Plugin hooks do not fire in the Claude desktop app (Cowork) — the suite's only environment — so the hook was dead weight and a source of confusion. The First-Run Experience and profile personalisation now work entirely inside the skills.
+
+### Changed
+- **All five entry skills now behave identically** (`/start-70`, `/ai-helper`, `/ai-helpers`, `/ai-specialist`, `/ai-specialists`). Each one reads the Business Profile from `~/.claude/ai-specialists/business-profile.md` at invocation: if setup is missing or `status: in-progress`, it runs the full First-Run Experience; if `status: complete`, it routes straight to the right specialist(s) and delivers the work.
+- `/start-70` now **routes to a specialist when the profile is already complete**, instead of only confirming the profile and offering an update.
+- `shared/skill-guidelines.md` now instructs every specialist to **read the profile from disk** (rather than expecting it injected into context at session start), so directly-invoked specialists also personalise from a saved profile.
+
 ## 2.1.1
 
 ### Added
