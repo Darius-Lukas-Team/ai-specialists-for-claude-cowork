@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.3
+
+### Added — Business Profile persists across sessions
+- The Business Profile is now saved to and read from **multiple locations**, fixing the Claude desktop app (Cowork) issue where a profile saved in one session was invisible in the next (each Cowork session is sandboxed and cannot reach `~/.claude`). Locations, in priority order on a tie: the connected project folder (`./ai-specialists/business-profile.md`, primary), the plugin's `userConfig.businessProfile`, a sentinel-wrapped block in Claude **Project** knowledge / context, and the legacy `~/.claude/...` path.
+- **Conflict resolution:** when complete profiles exist in more than one place and differ, the one with the **newest `updated:` date wins**; the gate then re-syncs it back to the other writable locations so they converge. Edit a profile by hand → bump `updated:`.
+- All five entry skills (`/start-70`, `/ai-helper`, `/ai-helpers`, `/ai-specialist`, `/ai-specialists`) now run this gather → resolve → re-sync gate on every invocation. `/start-70` saves to every writable location and prints a paste-into-Project block.
+- New `userConfig.businessProfile` field and sentinel markers (`<<<AI-SPECIALISTS BUSINESS PROFILE>>>`) around the profile template.
+
+### Changed — response formatting
+- **Every skill now breaks prose into short, scannable paragraphs** — a blank line after each long sentence or every two short sentences — instead of replying with walls of text. Applies to prose only (not tables, code, or list items).
+
 ## 2.1.2
 
 ### Removed

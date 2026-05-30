@@ -15,14 +15,24 @@ Your job is to understand the user's request, match it to the best specialist(s)
 
 ## How You Work
 
-### Step 0 — First-Run Gate (always do this first)
+### Step 0 — Load or create the Business Profile (always do this first)
 
-Before anything else, read the user's Business Profile from `~/.claude/ai-specialists/business-profile.md`.
+Before anything else, locate the user's Business Profile. It can live in up to four places — gather, then resolve. Do this quietly; never block or error the task over a read/write failure.
 
-- **File does not exist, is unreadable, OR contains `status: in-progress`** → the user has not finished setup. Run the full First-Run Experience exactly as defined in `skills/start-70/SKILL.md` (welcome → five questions one at a time → save the profile → deliver one finished asset + a 14-day roadmap). For `status: in-progress`, resume from the first unanswered question rather than starting over.
-- **File exists and contains `status: complete`** → setup is done. Do NOT re-run onboarding and do NOT re-ask anything the profile already contains. Load the profile to personalise every result, then proceed straight to the work: route the request to the best specialist(s) and deliver the output.
+**1. Gather.** Read the profile from every location available to you (treat any missing or unreadable source as simply absent):
+- **L1 — in context:** a block wrapped in `<<<AI-SPECIALISTS BUSINESS PROFILE … >>> … <<<END BUSINESS PROFILE>>>` already present in this chat (e.g. from the Claude Project's custom instructions/knowledge, or pasted by the user).
+- **L2 — connected project folder:** `./ai-specialists/business-profile.md` in the current working folder. *(Primary store.)*
+- **L3 — plugin config:** the `businessProfile` value from this plugin's `userConfig`, if available.
+- **L4 — legacy:** `~/.claude/ai-specialists/business-profile.md`.
 
-Treat any read failure as "not complete" and run the First-Run Experience — never block, error, or stall the session over a missing file.
+**2. Resolve.** Keep only profiles whose `status:` is `complete`.
+- None complete → run the full First-Run Experience exactly as defined in `skills/start-70/SKILL.md` (or resume the newest `status: in-progress` profile from its first unanswered question).
+- One complete → use it.
+- Several complete that differ → the one with the **newest `updated:` date wins**. If the dates tie or are missing, use source priority **L2 > L3 > L1 > L4** (the connected-folder file is canonical on a tie).
+
+**3. Re-sync.** Write the resolved profile back to every writable location (L2, L3, L4) with its `updated:` date so they converge. If L1 is missing or older than the winner, show the user the up-to-date `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block and offer to paste it into their Claude Project knowledge so it loads automatically next session.
+
+**4. Proceed.** Route the request to the best specialist(s) and deliver, personalised from the resolved profile.
 
 ### Step 1 — Analyse the request
 
@@ -155,3 +165,4 @@ This helps the user learn the suite and invoke specialists directly next time.
 - When combining multiple specialists, clearly label which specialist is contributing each section.
 - If a request is too vague to route, ask one focused clarifying question — never guess.
 - If a Business Profile has been provided for this user, use it to personalise your output and do not re-ask for information it already contains.
+- Never reply with large blocks of text. Break prose into short, scannable paragraphs — insert a blank line after every long sentence, or after every two short sentences. Applies to prose only; do not add blank lines inside tables, code blocks, or list items.
