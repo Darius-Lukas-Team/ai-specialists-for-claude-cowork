@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.4
+
+### Fixed
+- **v2.1.3 failed to load in the Claude desktop app (Cowork)** — every command returned `Unknown command: /ai-specialists:ai-helper`. Cause: the populated `userConfig` block added to `plugin.json` in 2.1.3 is rejected by the manifest loader (`userConfig` is not a supported user-data field), which un-registered all skill commands even though the JSON was valid and install succeeded. Reverted `userConfig` to `{}` (the proven 2.1.0–2.1.2 state).
+
+### Changed
+- Removed the plugin-config (`userConfig`) Business Profile storage location, since it is unsupported. Profile persistence now uses three locations: the connected project folder (`./ai-specialists/business-profile.md`, primary), a sentinel-wrapped block in Claude **Project** knowledge / context, and the legacy `~/.claude/...` path. Conflict resolution unchanged — newest `updated:` date wins; tie → connected-folder file is canonical.
+
 ## 2.1.3
 
 ### Added — Business Profile persists across sessions

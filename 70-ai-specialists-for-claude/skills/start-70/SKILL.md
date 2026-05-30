@@ -27,18 +27,17 @@ You follow `shared/skill-guidelines.md` and the `shared/business-profile-templat
 
 ### Step 0 — Load or create the Business Profile (always do this first)
 
-Before anything else, locate the user's Business Profile. It can live in up to four places — gather, then resolve. Do this quietly; never block or error the task over a read/write failure.
+Before anything else, locate the user's Business Profile. It can live in up to three places — gather, then resolve. Do this quietly; never block or error the task over a read/write failure.
 
 **1. Gather.** Read the profile from every location available to you (treat any missing or unreadable source as simply absent):
 - **L1 — in context:** a block wrapped in `<<<AI-SPECIALISTS BUSINESS PROFILE … >>> … <<<END BUSINESS PROFILE>>>` already present in this chat (e.g. from the Claude Project's custom instructions/knowledge, or pasted by the user).
 - **L2 — connected project folder:** `./ai-specialists/business-profile.md` in the current working folder. *(Primary store.)*
-- **L3 — plugin config:** the `businessProfile` value from this plugin's `userConfig`, if available.
-- **L4 — legacy:** `~/.claude/ai-specialists/business-profile.md`.
+- **L3 — legacy:** `~/.claude/ai-specialists/business-profile.md`.
 
 **2. Resolve.** Keep only profiles whose `status:` is `complete`.
 - None complete → run the First-Run Experience below (Steps 1–5), or resume the newest `status: in-progress` profile from its first unanswered question.
 - One complete → use it.
-- Several complete that differ → the one with the **newest `updated:` date wins**. If the dates tie or are missing, use source priority **L2 > L3 > L1 > L4** (the connected-folder file is canonical on a tie).
+- Several complete that differ → the one with the **newest `updated:` date wins**. If the dates tie or are missing, use source priority **L2 > L1 > L3** (the connected-folder file is canonical on a tie).
 
 **3. Proceed when complete.** Do NOT re-run onboarding. Confirm in one line that the profile is loaded, then act as the smart router: identify the best specialist(s), read the relevant `skills/<slug>/SKILL.md`, and deliver the work personalised with the profile. Offer to redo or update setup only if the user asks. (Whenever you save or update a profile, write it to all writable locations per Step 4.)
 
@@ -84,8 +83,7 @@ Build the profile from the answers using `shared/business-profile-template.md` a
 Then **save it to every writable location** so it survives across sessions (the desktop app sandboxes each session, so no single location is guaranteed). Do each quietly and never block on a failure:
 
 - **L2 — connected project folder (primary):** write `./ai-specialists/business-profile.md` in the current working folder (create the folder if needed).
-- **L3 — plugin config:** if this plugin's `userConfig` is writable, store the profile in its `businessProfile` field.
-- **L4 — legacy:** also write `~/.claude/ai-specialists/business-profile.md` (helps Claude Code users; harmless in the desktop app).
+- **L3 — legacy:** also write `~/.claude/ai-specialists/business-profile.md` (helps Claude Code users; harmless in the desktop app).
 - **L1 — Project knowledge:** print the full sentinel-wrapped block and tell the user, once, to **paste it into their Claude Project's custom instructions / knowledge** so it loads automatically in every future chat — the most reliable way to persist across sessions and devices.
 
 Tell the user the profile is **stored locally / in their own workspace and never uploaded to us.** Remind them: if they ever edit it by hand, bump the `updated:` date so the newest copy always wins.

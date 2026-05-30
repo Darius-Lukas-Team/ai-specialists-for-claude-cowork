@@ -40,6 +40,6 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 
 ## Business Profile
 
-- At the start of any task, look for the user's Business Profile. It can live in up to four places — check each (treat any missing/unreadable source as absent, never error): a sentinel-wrapped `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block already in this chat's context (e.g. Claude Project knowledge); `./ai-specialists/business-profile.md` in the connected project folder; this plugin's `userConfig.businessProfile`; and the legacy `~/.claude/ai-specialists/business-profile.md`.
+- At the start of any task, look for the user's Business Profile. It can live in up to three places — check each (treat any missing/unreadable source as absent, never error): a sentinel-wrapped `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block already in this chat's context (e.g. Claude Project knowledge); `./ai-specialists/business-profile.md` in the connected project folder; and the legacy `~/.claude/ai-specialists/business-profile.md`.
 - Use only profiles with `status: complete`. If several differ, the one with the **newest `updated:` date wins** (tie/no date → connected-folder file is canonical). Then match the user's offer, audience, voice, price point, and constraints, and never re-ask for information the profile already contains.
 - If no complete profile exists and the request would clearly benefit from one, you may suggest the user run `/start-70` first (a ~2-minute setup that personalises every specialist) — but never block the work.

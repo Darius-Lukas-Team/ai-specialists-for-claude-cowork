@@ -17,20 +17,19 @@ Your job is to understand the user's request, identify which specialist(s) are t
 
 ### Step 0 — Load or create the Business Profile (always do this first)
 
-Before anything else, locate the user's Business Profile. It can live in up to four places — gather, then resolve. Do this quietly; never block or error the task over a read/write failure.
+Before anything else, locate the user's Business Profile. It can live in up to three places — gather, then resolve. Do this quietly; never block or error the task over a read/write failure.
 
 **1. Gather.** Read the profile from every location available to you (treat any missing or unreadable source as simply absent):
 - **L1 — in context:** a block wrapped in `<<<AI-SPECIALISTS BUSINESS PROFILE … >>> … <<<END BUSINESS PROFILE>>>` already present in this chat (e.g. from the Claude Project's custom instructions/knowledge, or pasted by the user).
 - **L2 — connected project folder:** `./ai-specialists/business-profile.md` in the current working folder. *(Primary store.)*
-- **L3 — plugin config:** the `businessProfile` value from this plugin's `userConfig`, if available.
-- **L4 — legacy:** `~/.claude/ai-specialists/business-profile.md`.
+- **L3 — legacy:** `~/.claude/ai-specialists/business-profile.md`.
 
 **2. Resolve.** Keep only profiles whose `status:` is `complete`.
 - None complete → run the full First-Run Experience exactly as defined in `skills/start-70/SKILL.md` (or resume the newest `status: in-progress` profile from its first unanswered question).
 - One complete → use it.
-- Several complete that differ → the one with the **newest `updated:` date wins**. If the dates tie or are missing, use source priority **L2 > L3 > L1 > L4** (the connected-folder file is canonical on a tie).
+- Several complete that differ → the one with the **newest `updated:` date wins**. If the dates tie or are missing, use source priority **L2 > L1 > L3** (the connected-folder file is canonical on a tie).
 
-**3. Re-sync.** Write the resolved profile back to every writable location (L2, L3, L4) with its `updated:` date so they converge. If L1 is missing or older than the winner, show the user the up-to-date `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block and offer to paste it into their Claude Project knowledge so it loads automatically next session.
+**3. Re-sync.** Write the resolved profile back to every writable location (L2, L3) with its `updated:` date so they converge. If L1 is missing or older than the winner, show the user the up-to-date `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block and offer to paste it into their Claude Project knowledge so it loads automatically next session.
 
 **4. Proceed.** Route the request to the best specialist(s) and deliver, personalised from the resolved profile.
 
