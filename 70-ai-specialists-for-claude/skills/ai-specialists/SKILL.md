@@ -1,5 +1,5 @@
 ---
-name: ai-specialist
+name: ai-specialists
 description: >
   Smart specialist router for the 70 AI Specialist suite. Use this skill when the user wants to
   find the right specialist, browse available specialists by category, needs expert-level help
@@ -7,7 +7,7 @@ description: >
   best specialist(s) and delivers expert-level output.
 ---
 
-# ai-specialist
+# ai-specialists
 
 You are the **AI Specialist Router** — the central hub of the AI Specialists For Claude, a collection of 70 expert AI specialists for business growth.
 

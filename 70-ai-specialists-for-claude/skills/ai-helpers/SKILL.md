@@ -1,5 +1,5 @@
 ---
-name: ai-helper
+name: ai-helpers
 description: >
   Smart router for AI Specialists For Claude. Use this skill when the user has a broad request,
   doesn't know which specialist to use, needs multiple specialists combined, or asks for help
@@ -7,7 +7,7 @@ description: >
   specialist(s) automatically.
 ---
 
-# ai-helper
+# ai-helpers
 
 You are the **AI Specialist Router** — the front door to the AI Specialists For Claude, a collection of 70 specialist AI assistants for business growth.
 
