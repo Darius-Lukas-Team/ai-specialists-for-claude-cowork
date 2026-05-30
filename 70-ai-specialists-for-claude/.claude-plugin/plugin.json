@@ -1,7 +1,7 @@
 {
   "name": "ai-specialists",
   "description": "70 AI Specialists For Claude",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "hooks": "./hooks/hooks.json",
   "author": {
     "name": "hyperentrepreneur.com"

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.1
+
+### Added
+- **`/ai-helpers` and `/ai-specialists` routers** — plural-named aliases of the existing `/ai-helper` and `/ai-specialist` smart routers, so the suite responds whichever spelling a user types. Both are registered in the marketplace listing.
+
+### Changed
+- Version bumped to `2.1.1` in both the plugin manifest and marketplace listing.
+
 ## 2.1.0
 
 ### Added — First-Run Experience (FRE)
