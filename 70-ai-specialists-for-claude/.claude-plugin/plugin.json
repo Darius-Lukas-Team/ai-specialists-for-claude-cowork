@@ -1,8 +1,7 @@
 {
   "name": "ai-specialists",
   "description": "70 AI Specialists For Claude",
-  "version": "2.1.0",
-  "hooks": "./hooks/hooks.json",
+  "version": "2.1.3",
   "author": {
     "name": "hyperentrepreneur.com"
   },
@@ -17,5 +16,12 @@
     "content-creation",
     "strategy"
   ],
-  "userConfig": {}
+  "userConfig": {
+    "businessProfile": {
+      "type": "string",
+      "label": "Business Profile",
+      "description": "Optional. Paste your saved AI-Specialists Business Profile here (the block between the <<<AI-SPECIALISTS BUSINESS PROFILE>>> markers) so every specialist personalises output and you never have to re-onboard. /start-70 can create this for you.",
+      "default": ""
+    }
+  }
 }
