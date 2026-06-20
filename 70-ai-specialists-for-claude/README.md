@@ -12,11 +12,9 @@
 
 ## Usage
 
-**Start here: run `/start-70` first.** It's a ~2-minute setup that asks five quick questions, saves a reusable Business Profile so every specialist sounds like you, and hands you one finished asset plus a 14-day roadmap. In Claude Code / VS Code it launches automatically on first run; in the Claude desktop app (Cowork), type `/start-70` (or ask "how do I start") to begin.
+**Start here — run any of these five entry points: `/start-70`, `/ai-helper`, `/ai-helpers`, `/ai-specialist`, `/ai-specialists`.** They all behave the same. The first time you use one, it runs a ~2-minute setup: five quick questions that save a reusable Business Profile so every specialist sounds like you, then one finished asset plus a 14-day roadmap. Once your profile is saved, those same entry points skip setup and route straight to the right specialist, personalising the output from your profile.
 
-Invoke any helper by typing `/skill-name` in chat, or let Claude use them automatically for relevant tasks.
-
-Use `/ai-helper` as a smart router — describe what you need and it will pick the right specialist(s) automatically.
+Invoke any helper directly by typing `/skill-name` in chat, or let Claude use them automatically for relevant tasks.
 
 ## Skills
 

@@ -1,5 +1,6 @@
+<<<AI-SPECIALISTS BUSINESS PROFILE — do not delete>>>
 # Business Profile
-<!-- Created by /start-70. Edit anytime or re-run /start-70. Stored locally on your machine; never uploaded. -->
+<!-- Created by /start-70. Edit anytime or re-run /start-70. Stored locally / in your own workspace; never uploaded to us. If you edit by hand, bump `updated:` so the newest copy wins. -->
 status: complete        # complete | in-progress
 updated: {YYYY-MM-DD}
 
@@ -23,3 +24,4 @@ updated: {YYYY-MM-DD}
 
 ## Always Avoid
 {hard no's}
+<<<END BUSINESS PROFILE>>>

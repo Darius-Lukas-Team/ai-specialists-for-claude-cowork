@@ -1,5 +1,42 @@
 # Changelog
 
+## 2.1.4
+
+### Fixed
+- **v2.1.3 failed to load in the Claude desktop app (Cowork)** — every command returned `Unknown command: /ai-specialists:ai-helper`. Cause: the populated `userConfig` block added to `plugin.json` in 2.1.3 is rejected by the manifest loader (`userConfig` is not a supported user-data field), which un-registered all skill commands even though the JSON was valid and install succeeded. Reverted `userConfig` to `{}` (the proven 2.1.0–2.1.2 state).
+
+### Changed
+- Removed the plugin-config (`userConfig`) Business Profile storage location, since it is unsupported. Profile persistence now uses three locations: the connected project folder (`./ai-specialists/business-profile.md`, primary), a sentinel-wrapped block in Claude **Project** knowledge / context, and the legacy `~/.claude/...` path. Conflict resolution unchanged — newest `updated:` date wins; tie → connected-folder file is canonical.
+
+## 2.1.3
+
+### Added — Business Profile persists across sessions
+- The Business Profile is now saved to and read from **multiple locations**, fixing the Claude desktop app (Cowork) issue where a profile saved in one session was invisible in the next (each Cowork session is sandboxed and cannot reach `~/.claude`). Locations, in priority order on a tie: the connected project folder (`./ai-specialists/business-profile.md`, primary), the plugin's `userConfig.businessProfile`, a sentinel-wrapped block in Claude **Project** knowledge / context, and the legacy `~/.claude/...` path.
+- **Conflict resolution:** when complete profiles exist in more than one place and differ, the one with the **newest `updated:` date wins**; the gate then re-syncs it back to the other writable locations so they converge. Edit a profile by hand → bump `updated:`.
+- All five entry skills (`/start-70`, `/ai-helper`, `/ai-helpers`, `/ai-specialist`, `/ai-specialists`) now run this gather → resolve → re-sync gate on every invocation. `/start-70` saves to every writable location and prints a paste-into-Project block.
+- New `userConfig.businessProfile` field and sentinel markers (`<<<AI-SPECIALISTS BUSINESS PROFILE>>>`) around the profile template.
+
+### Changed — response formatting
+- **Every skill now breaks prose into short, scannable paragraphs** — a blank line after each long sentence or every two short sentences — instead of replying with walls of text. Applies to prose only (not tables, code, or list items).
+
+## 2.1.2
+
+### Removed
+- **`SessionStart` hook** (`hooks/hooks.json` + `hooks/session_start.js`) and the `hooks` key in `plugin.json`. Plugin hooks do not fire in the Claude desktop app (Cowork) — the suite's only environment — so the hook was dead weight and a source of confusion. The First-Run Experience and profile personalisation now work entirely inside the skills.
+
+### Changed
+- **All five entry skills now behave identically** (`/start-70`, `/ai-helper`, `/ai-helpers`, `/ai-specialist`, `/ai-specialists`). Each one reads the Business Profile from `~/.claude/ai-specialists/business-profile.md` at invocation: if setup is missing or `status: in-progress`, it runs the full First-Run Experience; if `status: complete`, it routes straight to the right specialist(s) and delivers the work.
+- `/start-70` now **routes to a specialist when the profile is already complete**, instead of only confirming the profile and offering an update.
+- `shared/skill-guidelines.md` now instructs every specialist to **read the profile from disk** (rather than expecting it injected into context at session start), so directly-invoked specialists also personalise from a saved profile.
+
+## 2.1.1
+
+### Added
+- **`/ai-helpers` and `/ai-specialists` routers** — plural-named aliases of the existing `/ai-helper` and `/ai-specialist` smart routers, so the suite responds whichever spelling a user types. Both are registered in the marketplace listing.
+
+### Changed
+- Version bumped to `2.1.1` in both the plugin manifest and marketplace listing.
+
 ## 2.1.0
 
 ### Added — First-Run Experience (FRE)

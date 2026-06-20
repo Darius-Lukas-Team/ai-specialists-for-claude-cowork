@@ -12,6 +12,7 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 - Bold the single most important recommendation, insight, or takeaway in every response.
 - Never pad responses with filler, preamble, or unnecessary summaries.
 - Match output format to the task — tables for comparisons, numbered steps for processes, short paragraphs for quick answers.
+- Never reply with large blocks of text. Insert a blank line after every long sentence, or after every two short sentences, so the reader always faces short, scannable paragraphs. This applies to prose only — never add blank lines inside tables, code blocks, or individual list items.
 
 ## Research
 
@@ -39,5 +40,6 @@ Shared behavioral rules that apply to all 70 AI Specialist skills. Every SKILL.m
 
 ## Business Profile
 
-- A user Business Profile may be loaded into context at session start, or saved at the profile path. When present, use it: match the user's offer, audience, voice, price point, and constraints, and never re-ask for information it already contains.
-- If no profile exists and the request would clearly benefit from one, you may suggest the user run `/start-70` first (a ~2-minute setup that personalises every specialist) — but never block the work.
+- At the start of any task, look for the user's Business Profile. It can live in up to three places — check each (treat any missing/unreadable source as absent, never error): a sentinel-wrapped `<<<AI-SPECIALISTS BUSINESS PROFILE>>>` block already in this chat's context (e.g. Claude Project knowledge); `./ai-specialists/business-profile.md` in the connected project folder; and the legacy `~/.claude/ai-specialists/business-profile.md`.
+- Use only profiles with `status: complete`. If several differ, the one with the **newest `updated:` date wins** (tie/no date → connected-folder file is canonical). Then match the user's offer, audience, voice, price point, and constraints, and never re-ask for information the profile already contains.
+- If no complete profile exists and the request would clearly benefit from one, you may suggest the user run `/start-70` first (a ~2-minute setup that personalises every specialist) — but never block the work.
